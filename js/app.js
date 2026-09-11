@@ -57,3 +57,26 @@ btnSaudar.addEventListener("click", () => {
   mensagemAluno.classList.add("alert-sucess");
   mensagemAluno.textContent = `Olá, ${nomeSemEspacos}! seja bem-vindo`;
 });
+
+//Exercicio 04
+let contador = 0;
+
+const numeroContador = document.querySelector("#numeroContador");
+let btnDiminuir = document.querySelector("#btnDiminuir");
+let btnAumentar = document.querySelector("#btnAumentar");
+let btnZerar = document.querySelector("#btnZerar");
+
+btnAumentar.addEventListener("click", () => {
+  contador++;
+  numeroContador.textContent = contador;
+});
+
+btnDiminuir.addEventListener("click", () => {
+  contador--;
+  numeroContador.textContent = contador;
+});
+
+btnZerar.addEventListener("click", () => {
+  contador = 0;
+  numeroContador.textContent = contador;
+});
