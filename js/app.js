@@ -102,3 +102,16 @@ btnCriarItem.addEventListener("click", () => {
   //Serve para colocar um elemento dentro de outro elemento HTML
   listaCriada.appendChild(novoElemento);
 });
+
+//Exercicio 07
+let inputTarefa = document.querySelector("#inputTarefa");
+const btnAdicionarTarefa = document.querySelector("#btnAdicionarTarefa");
+let avisoTarefa = document.querySelector("#avisoTarefa");
+let listaTarefas = document.querySelector("#listaTarefas");
+
+btnAdicionarTarefa.addEventListener("click", () => {
+  let novaTarefa = document.createElement("ol");
+  novaTarefa.textContent = `${inputTarefa.value}`;
+
+  listaTarefas.appendChild(novaTarefa);
+});
