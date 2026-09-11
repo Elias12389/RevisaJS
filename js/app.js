@@ -46,15 +46,15 @@ btnSaudar.addEventListener("click", () => {
   const nome = document.querySelector("#nomeAluno").value;
   const nomeSemEspacos = nome.trim();
   if (nomeSemEspacos === "") {
-    mensagemAluno.textContent = "Digite seu nome para continuar";
-    mensagemAluno.classList.remove("alert-light");
-    mensagemAluno.classList.add("alert-danger");
+    msgAluno.textContent = "Digite seu nome para continuar";
+    msgAluno.classList.remove("alert-light");
+    msgAluno.classList.add("alert-danger");
     //Essencial esse return para que o código entenda que ele deve sair da função assim que acabar, dessa forma aplicando o estilo de fato.
     return;
   }
 
   mensagemAluno.classList.remove("alert-danger");
-  mensagemAluno.classList.add("alert-sucess");
+  mensagemAluno.classList.add("alert-success");
   mensagemAluno.textContent = `Olá, ${nomeSemEspacos}! seja bem-vindo`;
 });
 
@@ -82,9 +82,23 @@ btnZerar.addEventListener("click", () => {
 });
 
 //Exercicio 05
-btnDetalhes = document.querySelector("#btnDetalhes");
-painelDetalhes = document.querySelector("#painelDetalhes");
+const btnDetalhes = document.querySelector("#btnDetalhes");
+const painelDetalhes = document.querySelector("#painelDetalhes");
 
 btnDetalhes.addEventListener("click", () => {
+  //O toggle() funciona como um interruptor. Se o elemento não existir, ele é adicionado. Se existir, ele é removido
   painelDetalhes.classList.toggle("d-none");
+});
+
+//Exercicio 06
+const btnCriarItem = document.querySelector("#btnCriarItem");
+const listaCriada = document.querySelector("#listaCriada");
+
+btnCriarItem.addEventListener("click", () => {
+  //Precisa criar um novo ol a cada click do botão para que sej acumulativo.
+  let novoElemento = document.createElement("ol");
+  //Para definir o elemento interno do ol, é preciso chamar textContent
+  novoElemento.textContent = "Piter";
+  //Serve para colocar um elemento dentro de outro elemento HTML
+  listaCriada.appendChild(novoElemento);
 });
