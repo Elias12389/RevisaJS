@@ -80,3 +80,11 @@ btnZerar.addEventListener("click", () => {
   contador = 0;
   numeroContador.textContent = contador;
 });
+
+//Exercicio 05
+btnDetalhes = document.querySelector("#btnDetalhes");
+painelDetalhes = document.querySelector("#painelDetalhes");
+
+btnDetalhes.addEventListener("click", () => {
+  painelDetalhes.classList.toggle("d-none");
+});
