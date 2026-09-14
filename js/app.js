@@ -131,3 +131,5 @@ btnAdicionarTarefa.addEventListener("click", () => {
   avisoTarefa.textContent = "";
   listaTarefas.appendChild(novaTarefa);
 });
+
+//Exercício 8
