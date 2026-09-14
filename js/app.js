@@ -34,7 +34,7 @@ btnRestaurarCor.addEventListener("click", () => {
 });
 
 //Exercicio 03
-//CAMPO DE TEXTO (jeito do professor/mais "dificil")
+//CAMPO DE TEXTO (jeito do professor)
 /*const inputNome = document.querySelector("#nomeAluno");*/
 //BTN
 const btnSaudar = document.querySelector("#btnSaudar");
@@ -97,8 +97,10 @@ const listaCriada = document.querySelector("#listaCriada");
 btnCriarItem.addEventListener("click", () => {
   //Precisa criar um novo ol a cada click do botão para que sej acumulativo.
   let novoElemento = document.createElement("ol");
+  //Adicionando estilo para que não fique somente um texto solto
+  novoElemento.classList.add("badge", "text-bg-secondary", "mb-3");
   //Para definir o elemento interno do ol, é preciso chamar textContent
-  novoElemento.textContent = "Piter";
+  novoElemento.textContent = "Novo Item!";
   //Serve para colocar um elemento dentro de outro elemento HTML
   listaCriada.appendChild(novoElemento);
 });
@@ -110,8 +112,14 @@ let avisoTarefa = document.querySelector("#avisoTarefa");
 let listaTarefas = document.querySelector("#listaTarefas");
 
 btnAdicionarTarefa.addEventListener("click", () => {
-  let novaTarefa = document.createElement("ol");
+  let novaTarefa = document.createElement("li");
   novaTarefa.textContent = `${inputTarefa.value}`;
+  novaTarefa.classList.add("badge", "text-bg-dark", "mb-3");
+  novaTarefa.style.cursor = "pointer";
+
+  novaTarefa.addEventListener("click", () => {
+    novaTarefa.remove();
+  });
 
   listaTarefas.appendChild(novaTarefa);
 });
