@@ -106,14 +106,21 @@ btnCriarItem.addEventListener("click", () => {
 });
 
 //Exercicio 07
-let inputTarefa = document.querySelector("#inputTarefa");
 const btnAdicionarTarefa = document.querySelector("#btnAdicionarTarefa");
 let avisoTarefa = document.querySelector("#avisoTarefa");
 let listaTarefas = document.querySelector("#listaTarefas");
 
 btnAdicionarTarefa.addEventListener("click", () => {
+  //Funciona somente dentro do if se usarmos o trim() (Jeito correto)"
+  let inputTarefa = document.querySelector("#inputTarefa").value;
+  let tarefaSemEspacos = inputTarefa.trim();
+  //validação do campo de texto
+  if (tarefaSemEspacos === "") {
+    avisoTarefa.textContent = "Porfavor, digite algo";
+    return;
+  }
   let novaTarefa = document.createElement("li");
-  novaTarefa.textContent = `${inputTarefa.value}`;
+  novaTarefa.textContent = `${tarefaSemEspacos}`;
   novaTarefa.classList.add("badge", "text-bg-dark", "mb-3");
   novaTarefa.style.cursor = "pointer";
 
@@ -121,5 +128,6 @@ btnAdicionarTarefa.addEventListener("click", () => {
     novaTarefa.remove();
   });
 
+  avisoTarefa.textContent = "";
   listaTarefas.appendChild(novaTarefa);
 });
