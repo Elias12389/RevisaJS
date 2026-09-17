@@ -133,3 +133,8 @@ btnAdicionarTarefa.addEventListener("click", () => {
 });
 
 //Exercício 8
+let inputFiltroProduto = document.querySelector("#inputFiltroProduto").value;
+let produtos = document.querySelectorAll(".produto");
+
+inputFiltroProduto.addEventListener("input", () => {});
+console.log(produtos);
