@@ -133,8 +133,23 @@ btnAdicionarTarefa.addEventListener("click", () => {
 });
 
 //Exercício 8
-let inputFiltroProduto = document.querySelector("#inputFiltroProduto").value;
-let produtos = document.querySelectorAll(".produto");
+const inputFiltro = document.querySelector('#inputFiltroProduto');
+const produtos = document.querySelectorAll('.produto');
 
-inputFiltroProduto.addEventListener("input", () => {});
-console.log(produtos);
+//Input trata-se de um escutador de eventos que observa tudo que o usuário digita no input
+inputFiltro.addEventListener('input', () => {
+  //Garante que tudo que o usuário digite fique em lower case e sem espaços para garantir que não ocorra erros gramaticais na pesquisa
+  const termoPesquisa = inputFiltro.value.toLowerCase().trim();
+
+  produtos.forEach(produto => {
+    //faz a mesma coisa, deixa tudo pequeno para garantir que não haja erros 
+    const nomeProduto = produto.querySelector('.nome-produto').textContent.toLowerCase();
+
+    //Fazemos uma verificação na qual, verificamos se o nomeProduto contém ou inclui alguma letra digitada no termoPesquisa    
+    if (nomeProduto.includes(termoPesquisa)) {
+      produto.style.display = '';
+    } else {
+      produto.style.display = 'none';
+    }
+  });
+});
